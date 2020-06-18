@@ -9,11 +9,11 @@ public class BasketException extends Exception {
         super(message);
     }
 
-    public BasketException(String message, Throwable cause) {
-        super(message, cause);
+    public BasketException(String message, Throwable throwable) {
+        super(message, throwable);
     }
 
-    public BasketException(Throwable cause) {
-        super(cause);
+    public BasketException(Throwable throwable) {
+        super(throwable);
     }
 }
