@@ -1,4 +1,4 @@
-package com.nikolairudko.entity;
+package com.nikolairudko.basket.entity;
 
 public class Ball {
 
@@ -19,7 +19,7 @@ public class Ball {
         return size;
     }
 
-    public void setRadius(BallSize size) {
+    public void setSize(BallSize size) {
         this.size = size;
     }
 
@@ -38,7 +38,7 @@ public class Ball {
     public void setMaterial(BallMaterial material) {
         this.material = material;
     }
-
+    
     public double getVolume(){
         return (4f / 3) * Math.PI * Math.pow(size.getRadius(), 3);
     }

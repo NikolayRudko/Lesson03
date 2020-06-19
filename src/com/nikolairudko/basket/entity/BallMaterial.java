@@ -1,12 +1,12 @@
-package com.nikolairudko.entity;
+package com.nikolairudko.basket.entity;
 
 public enum BallMaterial {
 
-    WOOD("Wood", 500),
-    STEEL("Steel", 7800),
     ALUMINIUM("Aluminum", 2700),
+    GLASS("Glass", 2500),
     PLASTIC("Plastic", 1020),
-    GLASS("Glass", 2500);
+    STEEL("Steel", 7800),
+    WOOD("Wood", 500);
 
     private double density;
     private String material;

@@ -1,4 +1,4 @@
-package com.nikolairudko.entity;
+package com.nikolairudko.basket.entity;
 
 public enum BallColor {
     RED("Red"), ORANGE("Orange"), YELLOW("Yellow"), GREEN("Green"), BLUE("Blue"), INDIGO("Indigo"), VIOLET("Violet");

@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+/src/com/nikolairudko/basket/main/
+/.idea/

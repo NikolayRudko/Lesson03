@@ -1,28 +1,19 @@
-package com.nikolairudko.entity;
+package com.nikolairudko.basket.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Basket {
-    private double volume;
-    private double freeVolume;
-    List<Ball> ballList;
-
-    public Basket() {
-    }
+    private final double volume;
+    private List<Ball> ballList;
 
     public Basket(double volume) {
-        this.volume = volume;
-        freeVolume = volume;
         ballList = new ArrayList<>();
+        this.volume = volume;
     }
 
     public double getVolume() {
         return volume;
-    }
-
-    public void setVolume(double volume) {
-        this.volume = volume;
     }
 
     public List<Ball> getBallList() {
@@ -30,20 +21,19 @@ public class Basket {
     }
 
     public boolean add(Ball ball) {
-        if (ball.getVolume() < freeVolume) {
+        if (ball.getVolume() < freeVolume()) {
             ballList.add(ball);
-            freeVolume = freeVolume - ball.getVolume();
             return true;
         }
         return false;
     }
 
-    public double getFreeVolume() {
-        return freeVolume;
-    }
-
-    public void setFreeVolume(double freeVolume) {
-        this.freeVolume = freeVolume;
+    private double freeVolume() {
+        double currentVolume = 0;
+        for (Ball nestedBall : ballList) {
+            currentVolume += nestedBall.getVolume();
+        }
+        return volume - currentVolume;
     }
 
     private StringBuffer ballsInfo() {
@@ -80,7 +70,7 @@ public class Basket {
 
     @Override
     public String toString() {
-        return String.format("Basket: volume - %.3f%nBalls:{%n%s}",
-                volume, ballsInfo().toString());
+        return String.format("Basket: volume - %.5f%nFree volume - %.5f%nBalls:{%n%s}",
+                volume, freeVolume(), ballsInfo().toString());
     }
 }
