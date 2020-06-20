@@ -28,6 +28,17 @@ public class Basket {
         return false;
     }
 
+    public boolean add(List<Ball> balls) {
+        for (Ball ball : balls) {
+            if (ball.getVolume() < freeVolume()) {
+                ballList.add(ball);
+            }else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private double freeVolume() {
         double currentVolume = 0;
         for (Ball nestedBall : ballList) {
@@ -70,7 +81,7 @@ public class Basket {
 
     @Override
     public String toString() {
-        return String.format("Basket: volume - %.5f%nFree volume - %.5f%nBalls:{%n%s}",
+        return String.format("Basket: volume - %f%nFree volume - %f%nBalls:{%n%s}",
                 volume, freeVolume(), ballsInfo().toString());
     }
 }
